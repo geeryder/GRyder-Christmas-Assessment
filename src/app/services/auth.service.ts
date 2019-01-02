@@ -12,6 +12,10 @@ export class AuthService {
     private router: Router
     ) { }
 
+    get user(){
+      return this.afs.auth.currentUser;
+    }
+
     register(email:string, password:string){
       return this.afs.auth.createUserWithEmailAndPassword(email, password);
     }

@@ -1,3 +1,51 @@
+<h1>Hello</h1>
+<!-- create -->
+<form #presentList = "ngForm" (ngSubmit)="upload(presentList.value)">
+  <label>Their name</label>
+  <input
+  name="name"
+  ngModel
+  required
+  type = "text"
+  placeholder="Who was it from?"
+  >
+
+  <label>Who are they ?</label>
+  <ul>
+  <li><input name="relationship" value="closeFamily" ngModel required type="radio">Close family</li>
+  <li><input name="relationship" value="family"ngModel required type="radio">Family</li>
+  <li><input name="relationship" value="friends"ngModel required type="radio">Friends</li>
+  <li><input name="relationship" value="other"ngModel required type="radio">Other</li>
+  </ul>
+
+  <label>Upload a picture of the prezzie</label>
+  <input 
+  name="picture"
+  ngModel
+  type="file">
+  <button>Upload</button>
+
+  <label>Describe your present</label>
+  <textarea
+  name="describtion"
+  ngModel
+  required
+  type="text"
+  cols="2"
+  rows="5"
+  ></textarea>
+  
+
+
+
+
+
+
+
+
+</form>
+
+<!-- Read -->
 <ul>
   <li class="text" *ngFor="let present of presents | async">
     {{present.name}}

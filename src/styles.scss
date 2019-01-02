@@ -11,13 +11,17 @@ body{
 form {
     padding: 10px;
     border: 2px solid black;
-    max-width: 300px;
+    width: 500px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     
     input, label {
         padding: 5px;
-        
+        display: inline-block;
     }
+}
+
+ul {
+    list-style-type: none;
 }

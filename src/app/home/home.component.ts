@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
+import { PresentListService } from '../services/present-list.service';
 
 @Component({
   selector: 'app-home',
@@ -9,20 +9,18 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
- 
   presents: Observable<any[]>;
 
-  constructor(afs: AngularFirestore,
-    private authService:AuthService
-    ){
-    this.presents = afs.collection('presents').valueChanges();
-  }
+  constructor(
+    private authService:AuthService,
+    private presentListService: PresentListService )
+    { this.presents = this.presentListService.presents; }
 
   logout(){
     this.authService.logout();
   }
 
+  
   ngOnInit() {
   }
 
