@@ -1,18 +1,61 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { AuthService } from '../services/auth.service';
+import { map } from 'rxjs/operators';
+
+export interface IpresentList {
+  theirName:string
+  relationship: string
+  picture: any
+  description: string
+  rating: number 
+  userID: string
+  date
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class PresentListService {
-  presents: Observable<any[]>;
+  errorMessage: string;
 
   constructor(
-    afs: AngularFirestore,
-  ) { this.presents = afs.collection('presents').valueChanges(); }
+    private afs: AngularFirestore,
+    private auth: AuthService
+  ) {}
 
+  get presentListCollection(){
+    return this.afs.collection<IpresentList[]>('presents',
+     (ref)=> ref.where("userID", "==", this.auth.user.uid)
+     .orderBy("date", "desc"));
+  }
   
+  get presentList():Observable<IpresentList[]>{
+    return this.presentListCollection.snapshotChanges()
+    .pipe(map(this.includeCollectionID))
+  }
+
+  upload(presentList: IpresentList[]){
+    const payload ={
+      userID : this.auth.user.uid,
+      date: new Date(),
+      ... presentList
+    }
+    return this.presentListCollection.add(payload)
+    .catch((error:Error)=>{
+      console.log(error);
+    })
+  }
+
+  includeCollectionID(docChangeAction){
+    return docChangeAction.map((a)=>{
+      const data = a.payload.doc.data();
+      const id = a.payload.doc.id;
+      return { id, ...data };
+    });
+  }
+
 
 
 }

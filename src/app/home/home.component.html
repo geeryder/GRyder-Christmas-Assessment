@@ -1,9 +1,9 @@
 <h1>Hello</h1>
 <!-- create -->
-<form #presentList = "ngForm" (ngSubmit)="upload(presentList.value)">
+<form #presentListForm = "ngForm" (ngSubmit)="upload(presentListForm.value); presentListForm.reset();">
   <label>Their name</label>
   <input
-  name="name"
+  name="theirName"
   ngModel
   required
   type = "text"
@@ -27,7 +27,7 @@
 
   <label>Describe your present</label>
   <textarea
-  name="describtion"
+  name="description"
   ngModel
   required
   type="text"
@@ -45,14 +45,18 @@
   max="5"
   >
 
+  <button type="submit">Submit</button>
+
 </form>
 
 <!-- Read -->
-<ul>
-  <li class="text" *ngFor="let present of presents | async">
-    {{present.name}}
-  </li>
-</ul>
+<div *ngFor="let present of presents | async">
+  <ul>
+    <li>{{present.description}}</li>
+    <li>{{present.theirName}}</li>
+  </ul>
+</div>
+  
+  <button (click)="logout()">Logout</button>
 
-<button (click)="logout()">Logout</button>
 
