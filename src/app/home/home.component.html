@@ -1,0 +1,8 @@
+<ul>
+  <li class="text" *ngFor="let present of presents | async">
+    {{present.name}}
+  </li>
+</ul>
+
+<button (click)="logout()">Logout</button>
+

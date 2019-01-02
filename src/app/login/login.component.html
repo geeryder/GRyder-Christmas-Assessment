@@ -1,0 +1,27 @@
+<body>
+  <h1>Login here!</h1>
+  <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+    <label>Email</label>
+    <input
+    name="email"
+    ngModel
+    email
+    required
+    placeholder="Enter your email">
+    
+    <label>Password</label>
+    <input
+    name="password"
+    type="password"
+    ngModel
+    password
+    required
+    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+    placeholder="Enter your password">
+    
+    
+    <button type= "submit" [disabled]="!loginForm.form.valid"> Login </button>
+    <p>Don't have an account ? <a routerLink="/register">Register Here</a></p>
+  </form>
+
+</body>
