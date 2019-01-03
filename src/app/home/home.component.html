@@ -1,4 +1,5 @@
-<h1>Hello</h1>
+<h1>Hello {{user?.email}}</h1> 
+<button (click)="logout()">Logout</button>
 <!-- create -->
 <form #presentListForm = "ngForm" (ngSubmit)="upload(presentListForm.value); presentListForm.reset();">
   <label>Their name</label>
@@ -23,7 +24,7 @@
   name="picture"
   ngModel
   type="file">
-  <button>Upload</button>
+  <!-- <button>Upload</button> -->
 
   <label>Describe your present</label>
   <textarea
@@ -49,14 +50,20 @@
 
 </form>
 
+
 <!-- Read -->
-<div *ngFor="let present of presents | async">
+<div *ngFor="let present of presentList | async">
   <ul>
-    <li>{{present.description}}</li>
+    <li>{{present.date.toDate() | date : 'd/M/yy' }}</li>
     <li>{{present.theirName}}</li>
+    <li>{{present.relationship}}</li>
+    <li>{{present.picture}}</li>    
+    <li>{{present.description}}</li>
+    <li>{{present.rating}}</li>
+    <p><input type="checkbox" (change)="update(present)" [(ngModel)]="present.letterSent"> Thank you letter sent</p>
+    <button (click)="delete(present)">Delete</button>
   </ul>
 </div>
-  
-  <button (click)="logout()">Logout</button>
+
 
 

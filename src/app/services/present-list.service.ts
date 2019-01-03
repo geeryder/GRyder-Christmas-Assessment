@@ -12,6 +12,11 @@ export interface IpresentList {
   rating: number 
   userID: string
   date
+  letterSent:boolean
+}
+
+export interface IpresentListID extends IpresentList{
+  id: string
 }
 
 @Injectable({
@@ -19,14 +24,16 @@ export interface IpresentList {
 })
 export class PresentListService {
   errorMessage: string;
+ 
 
   constructor(
     private afs: AngularFirestore,
     private auth: AuthService
   ) {}
 
+
   get presentListCollection(){
-    return this.afs.collection<IpresentList[]>('presents',
+    return this.afs.collection<IpresentList[]>('presentList',
      (ref)=> ref.where("userID", "==", this.auth.user.uid)
      .orderBy("date", "desc"));
   }
@@ -40,6 +47,7 @@ export class PresentListService {
     const payload ={
       userID : this.auth.user.uid,
       date: new Date(),
+      letterSent: false,
       ... presentList
     }
     return this.presentListCollection.add(payload)
@@ -54,6 +62,16 @@ export class PresentListService {
       const id = a.payload.doc.id;
       return { id, ...data };
     });
+  }
+
+  update(presentList:IpresentListID){
+    return this.presentListCollection.doc(presentList.id)
+    .update({ presentList: presentList.letterSent });
+  }
+
+  delete(presentList:IpresentListID){
+    return this.presentListCollection.doc(presentList.id)
+    .delete();
   }
 
 
