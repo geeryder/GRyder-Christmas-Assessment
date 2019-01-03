@@ -5,6 +5,7 @@ $primaryColor: rgb(204, 0, 0);
     box-sizing: border-box;
     font-family: 'Bitter', serif;
 }
+
 p{
     color: black;
 }
@@ -17,6 +18,10 @@ body{
     display: flex;
     justify-content: center;
     width: 100vw;
+    overflow-x: hidden;
+    // margin-top: 0;
+    // margin-right: 50px;
+    // margin-left: 50px; 
 }
 
 .outOfAppForm {
@@ -53,6 +58,11 @@ ul {
 
 .bow {
     width: 100vw;
+}
+
+a {
+    text-decoration: none;
+    color: white;
 }
 
 a :hover{

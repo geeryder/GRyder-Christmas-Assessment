@@ -1,8 +1,9 @@
+<app-nav></app-nav>
 <body>
   <div class="presentForm">
     <h2>Welcome {{user?.email}}</h2>
-    <button (click)="logout()">Logout</button>
-    <a routerLink="thankyou"><button>Print your letters</button></a>
+    <!-- <button (click)="logout()">Logout</button>
+    <a routerLink="thankyou"><button>Print your letters</button></a> -->
     <p>Log all your christmas presents here and we will create thankyou letters for you.</p>
 
     <form #presentListForm = "ngForm" (ngSubmit)="upload(presentListForm.value); presentListForm.reset();">

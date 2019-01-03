@@ -22,12 +22,6 @@ export class HomeComponent implements OnInit {
     ) { this.presentList = this.presentListService.presentList;
     this.user = this.authService.user; }
 
-
-
-  logout() {
-    this.authService.logout();
-  }
-
   upload(presentList: IpresentList[]) {
     this.presentListService.upload(presentList);
   }

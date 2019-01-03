@@ -1,0 +1,29 @@
+body{
+    display: inline-block!important;
+}
+
+nav {
+    width: 100vw;
+    height: 70px;
+    background-color: rgb(204, 0, 0);
+    color: white;
+    font-size: 20px;
+    display:flex;
+    text-align: left;
+
+    a{
+        padding: 10px;
+    }
+    
+    i{
+        font-size: 30px;
+    }
+    .menu{
+        display: flex;
+        justify-content: flex-end;
+        flex: 1;
+        color: white;
+        padding-right: 40px;
+
+    }
+}
