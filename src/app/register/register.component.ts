@@ -15,14 +15,14 @@ export class RegisterComponent implements OnInit {
     private router: Router
   ) { }
 
-  register(details: {email:string, password:string}){
+  register(details: {email: string, password: string}) {
     this.authService.register(details.email, details.password)
-      .then(()=>{
-        this.router.navigate(['/'])
+      .then(() => {
+        this.router.navigate(['/']);
       })
-      .catch((error:Error)=>{
+      .catch((error: Error) => {
         this.errorMessage = error.message;
-      })
+      });
   }
 
   ngOnInit() {

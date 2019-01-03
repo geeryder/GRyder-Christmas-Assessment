@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyDnh8tKjULg0Yomu8ikWS1SSLk9Wb-10hA",
-    authDomain: "christmas-assessment.firebaseapp.com",
-    databaseURL: "https://christmas-assessment.firebaseio.com",
-    projectId: "christmas-assessment",
-    storageBucket: "christmas-assessment.appspot.com",
-    messagingSenderId: "300809069514"
+    apiKey: 'AIzaSyDnh8tKjULg0Yomu8ikWS1SSLk9Wb-10hA',
+    authDomain: 'christmas-assessment.firebaseapp.com',
+    databaseURL: 'https://christmas-assessment.firebaseio.com',
+    projectId: 'christmas-assessment',
+    storageBucket: 'christmas-assessment.appspot.com',
+    messagingSenderId: '300809069514'
   }
 };
 

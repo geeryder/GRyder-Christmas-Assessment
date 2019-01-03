@@ -12,26 +12,26 @@ export class AuthService {
     private router: Router
     ) { }
 
-    get user(){
+    get user() {
       return this.afs.auth.currentUser;
     }
 
-    register(email:string, password:string){
+    register(email: string, password: string) {
       return this.afs.auth.createUserWithEmailAndPassword(email, password);
     }
 
-    login(email:string, password:string){
+    login(email: string, password: string) {
       return this.afs.auth.signInWithEmailAndPassword(email, password);
     }
 
-    logout(){
+    logout() {
       return this.afs.auth.signOut()
-      .then(()=>{
-        this.router.navigate(['login'])
+      .then(() => {
+        this.router.navigate(['login']);
       })
-      .catch((error:Error)=>{
+      .catch((error: Error) => {
         throw error.message;
-      })
+      });
     }
 
 

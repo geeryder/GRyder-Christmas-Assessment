@@ -15,31 +15,30 @@ export class HomeComponent implements OnInit {
   presentListCollection: AngularFirestoreCollection;
 
   constructor(
-    private authService:AuthService,
+    private authService: AuthService,
     private presentListService: PresentListService,
-    )
-    { this.presentList = this.presentListService.presentList;
+    ) { this.presentList = this.presentListService.presentList;
     this.user = this.authService.user; }
 
-  
 
-  logout(){
+
+  logout() {
     this.authService.logout();
   }
 
-  upload(presentList:IpresentList[]){
+  upload(presentList: IpresentList[]) {
     this.presentListService.upload(presentList);
   }
 
-  update(presentList:IpresentListID){
+  update(presentList: IpresentListID) {
     this.presentListService.update(presentList);
   }
 
-  delete(presentList:IpresentListID){
+  delete(presentList: IpresentListID) {
     this.presentListService.delete(presentList);
   }
 
-  
+
   ngOnInit() {
   }
 

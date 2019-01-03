@@ -8,21 +8,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  errorMessage: string
+  errorMessage: string;
 
   constructor(
     private authService: AuthService,
     private router: Router
   ) { }
 
-  login(details: {email:string, password:string}){
+  login(details: {email: string, password: string}) {
     this.authService.login(details.email, details.password)
-      .then(()=>{
-        this.router.navigate(['/'])
+      .then(() => {
+        this.router.navigate(['/']);
       })
-      .catch((error:Error)=>{
+      .catch((error: Error) => {
         this.errorMessage = error.message;
-      })
+      });
   }
 
   ngOnInit() {

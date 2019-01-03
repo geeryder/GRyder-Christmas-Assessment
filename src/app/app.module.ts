@@ -15,10 +15,10 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { ThankyouLettersComponent } from './thankyou-letters/thankyou-letters.component';
 
 const appRoutes: Routes = [
-  { path: "", component: HomeComponent, canActivate: [AuthGuardService] },
-  { path: "register", component: RegisterComponent },
-  { path: "login", component: LoginComponent },
-]
+  { path: '', component: HomeComponent, canActivate: [AuthGuardService] },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+];
 
 @NgModule({
   declarations: [

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router, CanActivate} from '@angular/router';
-import { first, map } from 'rxjs/operators'
+import { first, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 @Injectable({
