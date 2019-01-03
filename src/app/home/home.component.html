@@ -1,80 +1,93 @@
-<h1>Hello {{user?.email}}</h1> 
-<button (click)="logout()">Logout</button>
-<a routerLink="thankyou"><button>Thankyou letters</button></a>
-<!-- create -->
-<form #presentListForm = "ngForm" (ngSubmit)="upload(presentListForm.value); presentListForm.reset();">
-  <label>Their name</label>
-  <input
-  name="theirName"
-  ngModel
-  required
-  type = "text"
-  placeholder="Who was it from?"
-  >
+<body>
+  <div class="presentForm">
+    <h2>Welcome {{user?.email}}</h2>
+    <p>Log all your christmas presents here and we will create thankyou letters for you.</p>
+    <button (click)="logout()">Logout</button>
+    <a routerLink="thankyou"><button>Thankyou letters</button></a>
+    <!-- create -->
+    <form #presentListForm = "ngForm" (ngSubmit)="upload(presentListForm.value); presentListForm.reset();">
+      <label>Their name</label>
+      <input
+      name="theirName"
+      ngModel
+      required
+      type = "text"
+      placeholder="Who was it from?"
+      >
+      
+      <label>Who are they ?</label>
+      <ul>
+        <li><input name="relationship" value="closeFamily" ngModel required type="radio">Close family</li>
+        <li><input name="relationship" value="family"ngModel required type="radio">Family</li>
+        <li><input name="relationship" value="friends"ngModel required type="radio">Friends</li>
+        <li><input name="relationship" value="other"ngModel required type="radio">Other</li>
+      </ul>
+      
+      <label>Upload a picture of the prezzie</label>
+      <input 
+      name="picture"
+      ngModel
+      type="file">
+      <!-- <button>Upload</button> -->
+      
+      <label>What was it?</label>
+      <input
+      name="description"
+      ngModel
+      required
+      type="text"
+      cols="2"
+      rows="5"
+      >
+      
+      <label>Rate it out of 5</label>
+      <rating name="rating" [(ngModel)]="rate" [max]="max"></rating>
 
-  <label>Who are they ?</label>
-  <ul>
-  <li><input name="relationship" value="closeFamily" ngModel required type="radio">Close family</li>
-  <li><input name="relationship" value="family"ngModel required type="radio">Family</li>
-  <li><input name="relationship" value="friends"ngModel required type="radio">Friends</li>
-  <li><input name="relationship" value="other"ngModel required type="radio">Other</li>
-  </ul>
+      <!-- <input
+      name="rating"
+      ngModel
+      required
+      type="number"
+      min="1"
+      max="5"
+      > -->
+      
+      <label>Want to leave a special message on the thankyou letter? write it here.</label>
+      <textarea
+      name="message"
+      ngModel
+      type="number"
+      cols="2"
+      rows="5"
+      ></textarea>
+      
+      <button type="submit">Submit</button>
+      
+    </form>
+  </div>
+    
+      <div class="tree" >
+        <img class="tree" src="/assets/christmasTree.gif" alt="christmasTree">
+        <div class="prezzies" *ngFor="let present of presentList | async">
+            <ul>
+              <li>{{present.date.toDate() | date : 'd/M/yy' }}</li>
+              <li>{{present.theirName}}</li>
+              <li>{{present.relationship}}</li>
+              <li>{{present.picture}}</li>    
+              <li>{{present.description}}</li>
+              <li>{{present.rating}} <i class="fas fa-star"></i>'s</li>
+              <p><input type="checkbox" (change)="update(present)" [(ngModel)]="present.letterSent"> Thankyou letter sent?</p>
+              <button (click)="delete(present)">Delete</button>
+            </ul>
+          </div>
+      </div>
+   
+    
+    <!-- Read -->
+  
+    
+    
+   
+  
 
-  <label>Upload a picture of the prezzie</label>
-  <input 
-  name="picture"
-  ngModel
-  type="file">
-  <!-- <button>Upload</button> -->
-
-  <label>What was it?</label>
-  <input
-  name="description"
-  ngModel
-  required
-  type="text"
-  cols="2"
-  rows="5"
-  >
-
-  <label>Rate it out of 5</label>
-  <input
-  name="rating"
-  ngModel
-  required
-  type="number"
-  min="1"
-  max="5"
-  >
-
-  <label>Want to leave a special message on the thankyou letter? write it here.</label>
-  <textarea
-  name="message"
-  ngModel
-  type="number"
-  cols="2"
-  rows="5"
-  ></textarea>
-
-  <button type="submit">Submit</button>
-
-</form>
-
-<img class="tree" src="/assets/christmasTree.gif" alt="christmasTree">
-
-<!-- Read -->
-<div *ngFor="let present of presentList | async">
-  <ul>
-    <li>{{present.date.toDate() | date : 'd/M/yy' }}</li>
-    <li>{{present.theirName}}</li>
-    <li>{{present.relationship}}</li>
-    <li>{{present.picture}}</li>    
-    <li>{{present.description}}</li>
-    <li>{{present.rating}}</li>
-    <p><input type="checkbox" (change)="update(present)" [(ngModel)]="present.letterSent"> Thankyou letter sent?</p>
-    <button (click)="delete(present)">Delete</button>
-  </ul>
-</div>
-
-
-
+</body>

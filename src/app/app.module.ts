@@ -6,6 +6,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { RatingModule } from 'ngx-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -35,6 +36,7 @@ const appRoutes: Routes = [
     AngularFirestoreModule,
     AngularFireAuthModule,
     FormsModule,
+    RatingModule.forRoot(),
     RouterModule.forRoot(
       appRoutes, { enableTracing: false}
     )

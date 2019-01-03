@@ -1,8 +1,8 @@
-<body class="bow">
-  <img src="/assets/bow.jpg">
+<body>
+  <img class="bow" src="/assets/bow.jpg" alt="christmas bow">
   <div class="outOfAppForm">
     <h1>Register here!</h1>
-      <form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
+      <form class="login" #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
         <label>Name</label>
         <input
         name="name"

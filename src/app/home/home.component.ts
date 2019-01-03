@@ -13,6 +13,8 @@ export class HomeComponent implements OnInit {
   user;
   presentList: Observable<IpresentList[]>;
   presentListCollection: AngularFirestoreCollection;
+  max: number = 5;
+  rate: number = 2;
 
   constructor(
     private authService: AuthService,
