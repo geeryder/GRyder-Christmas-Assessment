@@ -11,7 +11,7 @@ import { AngularFirestoreCollection } from '@angular/fire/firestore';
 })
 export class HomeComponent implements OnInit {
   user;
-  presentList: Observable<any[]>;
+  presentList: Observable<IpresentList[]>;
   presentListCollection: AngularFirestoreCollection;
 
   constructor(

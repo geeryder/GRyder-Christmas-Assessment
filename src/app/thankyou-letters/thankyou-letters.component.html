@@ -1,3 +1,21 @@
-<p>
-  thankyou-letters works!
-</p>
+<h2>Here are all your thankyou letters!<h2>
+    <a routerLink=""><button>Go back to your list!</button></a>
+  <ul>
+    <li>1. Print this page off</li>
+    <li>2. Cut around the lines</li>
+    <li>3. Send to your loved ones</li>
+  </ul>
+<div class="thankuLetterDiv" *ngFor="let present of presentList | async">
+  <div class="thankuText">
+  <img class="xmas" src="assets/merryXmas.png" alt="merry christmas sign"> 
+  <h4>Dear {{present.theirName}}</h4>
+  <p>Hope you had a lovely christmas and new years! 
+    I would just like to say thank you very much for my present this year,
+    it was very kind of you.
+    Thankyou!
+    P.s {{present.message}} 
+  </p>
+  <h4>From {{user?.email}}</h4>
+  </div>
+
+</div>

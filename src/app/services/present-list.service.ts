@@ -10,6 +10,7 @@ export interface IpresentList {
   picture: any;
   description: string;
   rating: number;
+  message: string;
   userID: string;
   date;
   letterSent: boolean;
@@ -66,7 +67,7 @@ export class PresentListService {
 
   update(presentList: IpresentListID) {
     return this.presentListCollection.doc(presentList.id)
-    .update({ presentList: presentList.letterSent });
+    .update({ letterSent: presentList.letterSent });
   }
 
   delete(presentList: IpresentListID) {

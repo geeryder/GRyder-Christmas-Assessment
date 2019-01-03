@@ -16,6 +16,7 @@ import { ThankyouLettersComponent } from './thankyou-letters/thankyou-letters.co
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuardService] },
+  { path: 'thankyou', component: ThankyouLettersComponent, canActivate: [AuthGuardService] },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
 ];
