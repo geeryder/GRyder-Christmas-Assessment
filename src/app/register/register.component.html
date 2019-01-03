@@ -5,30 +5,49 @@
       <form class="login" #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
         <label>Name</label>
         <input
+        #name="ngModel"
         name="name"
         ngModel
         type="text"
         required
         minlength="3"
-        placeholder="Enter your name">
+        placeholder="Enter your name"
+        >
+
+        <div *ngIf="name.invalid && name.touched">
+            <small *ngIf="name.errors.required">Name is required</small>
+            <small *ngIf="name.errors.minlength">Must be at least 3 characters</small>
+        </div>
     
         <label>Email</label>
         <input
         name="email"
         ngModel
+        #email="ngModel"
         email
         required
         placeholder="Enter your email">
+        
+        <div *ngIf="email.invalid && email.touched">
+            <small *ngIf="email.errors.required" class="text-danger">Emai is required</small>
+            <small *ngIf="email.errors.email" class=" col-md-6 text-danger">Email must be valid</small>
+        </div>
     
         <label>Password</label>
         <input
         name="password"
         type="password"
+        #password="ngModel"
         ngModel
         password
         required
         pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
         placeholder="Create a password">
+
+        <div *ngIf= "password.invalid && password.touched ">
+            <small *ngIf="password.errors.minlength" class="text-danger">Password must be at least 6 chararcters</small>
+            <small *ngIf="password.errors.pattern" class="text-danger">Password must contain a combination of uppcase and lowercase letters</small>
+        </div>
   
   
         <button type= "submit" > Register </button>

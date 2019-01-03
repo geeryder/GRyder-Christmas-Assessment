@@ -1,11 +1,10 @@
 <body>
   <div class="presentForm">
     <h2>Welcome {{user?.email}}</h2>
-    <p>Log all your christmas presents here and we will create thankyou letters for you.</p>
     <button (click)="logout()">Logout</button>
-    <a routerLink="thankyou"><button>Thankyou letters</button></a>
+    <a routerLink="thankyou"><button>Print your letters</button></a>
+    <p>Log all your christmas presents here and we will create thankyou letters for you.</p>
 
-    <!-- create -->
     <form #presentListForm = "ngForm" (ngSubmit)="upload(presentListForm.value); presentListForm.reset();">
       <label>Their name</label>
       <input
@@ -69,14 +68,16 @@
         <div class="tree" ></div>
           <div class="prezzies" *ngFor="let present of presentList | async">
               <div class="presentInfo">
+
                   <h4>{{present.date.toDate() | date : 'd/M/yy' }}</h4>
                   <p>Name : {{present.theirName}}</p>
                   <p>Relationship: {{present.relationship}}</p>
                   <p>{{present.picture}}</p>    
                   <p>The present: {{present.description}}</p>
-                  <p>{{present.rating}} <i class="fas fa-star"></i>'s</p>
+                  <p>{{present.rating}} <i ria-hidden="true" class="fas fa-star"></i>'s</p>
+
                   <p><input type="checkbox" (change)="update(present)" [(ngModel)]="present.letterSent"> Letter sent?</p>
-                  <button (click)="delete(present)">Delete</button>
+                  <button (click)="delete(present)">X</button>
               </div>
             
             </div>
