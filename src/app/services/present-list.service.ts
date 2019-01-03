@@ -12,7 +12,7 @@ export interface IpresentList {
   rating: number;
   message: string;
   userID: string;
-  date;
+  date: Date;
   letterSent: boolean;
 }
 

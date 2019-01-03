@@ -17,7 +17,11 @@ export class ThankyouLettersComponent implements OnInit {
     private presentListService: PresentListService,
     private authService: AuthService
   ) { this.presentList = this.presentListService.presentList;
-      this.user = this.authService.user;}
+      this.user = this.authService.user; }
+
+    printPage() {
+      window.print();
+    }
 
   ngOnInit() {
   }

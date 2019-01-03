@@ -1,16 +1,29 @@
+
 body { 
     display: flex;
     flex-direction:column;
 }
 
 .prezzies{
-    background-image: url("./assets/present.gif");
+    background-image: url("../../assets/present.gif");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 300px;
+    height: 250px;
+    .presentInfo{
+        padding-top: 40px;
+        padding-left: 50px;
+
+    }
 }
 
-.tree{
-    border: 2px solid black;
-    width: 300px;
+.tree{   
+    width: 80px;
     position: relative;
+    background-image: url("../../assets/christmasTree.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 form{
@@ -27,25 +40,30 @@ form{
     }
 }
 
-
-
 @media only screen and (min-width: 600px){
+    body{
+        flex-direction: row;
+    }
+
     form{
          width: 400px;
     }
     .tree{
-        height: 300px;
-        width: 300px;
+        height: 100px;
+        width: 80px;
     }
     .prezzies {
-        height: 200px;
+        height: 400px;
+        .presentInfo{
+            padding-top: 100px;
+            padding-left: 50px;
+    
+        }
     
     }
     
     body {
         flex-direction: row;
     }
-
-
 
 }

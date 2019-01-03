@@ -4,6 +4,7 @@
     <p>Log all your christmas presents here and we will create thankyou letters for you.</p>
     <button (click)="logout()">Logout</button>
     <a routerLink="thankyou"><button>Thankyou letters</button></a>
+
     <!-- create -->
     <form #presentListForm = "ngForm" (ngSubmit)="upload(presentListForm.value); presentListForm.reset();">
       <label>Their name</label>
@@ -28,7 +29,6 @@
       name="picture"
       ngModel
       type="file">
-      <!-- <button>Upload</button> -->
       
       <label>What was it?</label>
       <input
@@ -61,33 +61,25 @@
       rows="5"
       ></textarea>
       
-      <button type="submit">Submit</button>
+      <button type="submit" [disabled]="!presentListForm.form.valid">Submit</button>
       
     </form>
   </div>
-    
-      <div class="tree" >
-        <img class="tree" src="/assets/christmasTree.gif" alt="christmasTree">
-        <div class="prezzies" *ngFor="let present of presentList | async">
-            <ul>
-              <li>{{present.date.toDate() | date : 'd/M/yy' }}</li>
-              <li>{{present.theirName}}</li>
-              <li>{{present.relationship}}</li>
-              <li>{{present.picture}}</li>    
-              <li>{{present.description}}</li>
-              <li>{{present.rating}} <i class="fas fa-star"></i>'s</li>
-              <p><input type="checkbox" (change)="update(present)" [(ngModel)]="present.letterSent"> Thankyou letter sent?</p>
-              <button (click)="delete(present)">Delete</button>
-            </ul>
-          </div>
-      </div>
-   
-    
-    <!-- Read -->
+    <div class="presentLayout">
+        <div class="tree" ></div>
+          <div class="prezzies" *ngFor="let present of presentList | async">
+              <div class="presentInfo">
+                  <h4>{{present.date.toDate() | date : 'd/M/yy' }}</h4>
+                  <p>Name : {{present.theirName}}</p>
+                  <p>Relationship: {{present.relationship}}</p>
+                  <p>{{present.picture}}</p>    
+                  <p>The present: {{present.description}}</p>
+                  <p>{{present.rating}} <i class="fas fa-star"></i>'s</p>
+                  <p><input type="checkbox" (change)="update(present)" [(ngModel)]="present.letterSent"> Letter sent?</p>
+                  <button (click)="delete(present)">Delete</button>
+              </div>
+            
+            </div>
+    </div>
   
-    
-    
-   
-  
-
 </body>
