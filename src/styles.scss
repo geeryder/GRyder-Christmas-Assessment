@@ -4,6 +4,11 @@ $primaryColor: rgb(204, 0, 0);
     box-sizing: border-box;
     font-family: 'Bitter', serif;
 }
+
+body{
+    margin:0;
+}
+
 small{
     color: $primaryColor;
 }

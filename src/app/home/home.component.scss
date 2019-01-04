@@ -65,9 +65,13 @@ form{
 }
 
 @media only screen and (min-width: 768px){
-
+    .presentForm {
+        margin-left: 50px;
+    }
+    
     form{ 
         width: 500px;
+
     }
 
     .tree{
