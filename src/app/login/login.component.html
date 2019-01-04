@@ -5,14 +5,20 @@
   <form class="login" #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
   <label>Email</label>
   <input
+  #email="ngModel"
   name="email"
   ngModel
   email
   required
   placeholder="Enter your email">
+  <div *ngIf="email.invalid && email.touched">
+      <small *ngIf="email.errors.required" class="text-danger">Emai is required</small>
+      <small *ngIf="email.errors.email" class=" col-md-6 text-danger">Email must be valid</small>
+  </div>
   
   <label>Password</label>
   <input
+  #password="ngModel"
   name="password"
   type="password"
   ngModel
@@ -20,12 +26,15 @@
   required
   pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
   placeholder="Enter your password">
+  <div *ngIf= "password.invalid && password.touched ">
+      <small *ngIf="password.errors.minlength" class="text-danger">Password must be at least 6 chararcters</small>
+      <small *ngIf="password.errors.pattern" class="text-danger">Password must contain a combination of uppcase and lowercase letters</small>
+  </div>
   
   
   <a><button type= "submit" > Login </button></a>
   <p>Don't have an account ? <a routerLink="/register">Register Here</a></p>
   </form>
   </div>
-  <!-- [disabled]="!loginForm.form.valid" -->
 
 </body>

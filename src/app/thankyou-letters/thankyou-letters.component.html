@@ -1,18 +1,21 @@
 <app-nav pageTitle="MY LETTERS"></app-nav>
 <body>
 <div>
-  <h2>Here are all your thankyou letters!</h2>
+  <div>
+  
+    <h2>Here are all your thankyou letters!</h2>
+        
+      <ul>
+        <li>1. Print this page off</li>
+        <li>2. Cut around the lines</li>
+        <li>3. Send to your loved ones</li>
+      </ul>
       <a><button id="print" (click)="printPage()">Print</button></a>
-    <ul>
-      <li>1. Print this page off</li>
-      <li>2. Cut around the lines</li>
-      <li>3. Send to your loved ones</li>
-    </ul>
+</div>
   
   <div *ngFor="let present of presentList | async">
     <div *ngIf="!present.letterSent" class="thankuLetterDiv" >
       <div class="thankuText" >
-      <!-- <img class="xmas" src="assets/merryXmas.png" alt="merry christmas sign">  -->
       <h4>Dear {{present.theirName}}</h4>
       <p>Hope you had a lovely christmas and new years!</p>
         <p>I would just like to say thank you very much for my present this year,

@@ -5,16 +5,25 @@ body {
     margin: 50px;
 }
 .prezzies{
-    border: 1px solid rgb(204, 0, 0);
+    background-image: url("../../assets/present.gif");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 380px;
+    height: 500px;
     padding: 10px;
     border-radius: 10px;
+    display: flex;
+    .presentInfo{
+        width: 300px;
+        padding-top: 120px;
+        padding-left: 30px;
+    }
     h4, p {
-        font-size: 12px;
+        font-size: 18px;
 
     }
     
 }
-
 
 .tree{   
     width: 80px;
@@ -37,16 +46,22 @@ form{
         padding: 5px;
         display: inline-block;
     }
+    input{
+        padding: 10px;
+    }
 }
 
-@media only screen and (min-width: 600px){
-    body{
-        flex-direction: row;
+.starRating{
+    font-size: 30px;
+    color: gold;
+}
+
+@media only screen and (min-width: 768px){
+
+    form{ 
+        width: 500px;
     }
 
-    form{
-         flex: 1;
-    }
     .tree{
         height: 100px;
         width: 80px;
@@ -54,31 +69,10 @@ form{
     .presentLayout{
         display: flex;
         flex-wrap: wrap;
-        flex:2;
-
-        .prezzies {
-            border: none;
-            background-image: url("../../assets/present.gif");
-            background-repeat: no-repeat;
-            background-size: contain;
-            width: 400px;
-
-            .presentInfo{
-                padding-top: 100px;
-                padding-left: 50px;
-                h4, p {
-                    font-size: 17px;
-            
-                }
-                
-            }
-    }
     }
     
     body {
-        flex-direction: row;
-        justify-content: left;
-        
+        flex-direction: row;        
     }
 
 }

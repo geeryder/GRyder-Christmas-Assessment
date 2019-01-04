@@ -1,8 +1,8 @@
 <app-nav pageTitle="MY GIFTS"></app-nav>
 <body>
   <div class="presentForm">
-    <h2>Welcome {{user?.email}}</h2>
-    <p>Log all your christmas presents here and we will create thankyou letters for you.</p>
+    <h2>Welcome {{user?.email}} to your gift list!</h2>
+    <p>What did you get for christmas? Tell us and we can help you send thank you letters!</p>
 
     <form #presentListForm = "ngForm" (ngSubmit)="upload(presentListForm.value); presentListForm.reset();">
       <label>Their name</label>
@@ -34,21 +34,11 @@
       ngModel
       required
       type="text"
-      cols="2"
-      rows="5"
+      placeholder="Describe your present"
       >
       
       <label>Rate it out of 5</label>
-      <rating name="rating" [(ngModel)]="rate" [max]="max"></rating>
-
-      <!-- <input
-      name="rating"
-      ngModel
-      required
-      type="number"
-      min="1"
-      max="5"
-      > -->
+      <rating  class="starRating" name="rating" [(ngModel)]="rate" [max]="max"></rating>
       
       <label>Want to leave a special message on the thankyou letter? write it here.</label>
       <textarea
