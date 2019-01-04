@@ -1,8 +1,11 @@
 <nav>
+    <div>
+        <h1>{{pageTitle}}</h1>
+    </div>
     <div class="menu">
-        <a routerLink="thankyou">My letters</a>
+        <a routerLink="/thankyou">My letters</a>
         <a routerLink="">My gifts</a>
-        <a (click)="logout()">Logout</a>
+        <a href="#" (click)="logout()">Logout</a>
         <i aria-hidden="true" class="fas fa-gift"></i>
     </div>
 </nav>

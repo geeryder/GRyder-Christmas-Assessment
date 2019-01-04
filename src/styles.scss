@@ -17,11 +17,8 @@ h1{
 body{
     display: flex;
     justify-content: center;
-    width: 100vw;
+    width: 100%;
     overflow-x: hidden;
-    // margin-top: 0;
-    // margin-right: 50px;
-    // margin-left: 50px; 
 }
 
 .outOfAppForm {
@@ -32,6 +29,7 @@ body{
 }
 
 .login {
+    font-size: 20px;
     padding: 10px;
     border: 2px solid $primaryColor;
     background-color: rgba(250, 250, 250, 0.9);
@@ -44,10 +42,15 @@ body{
     label{
         padding: 5px;
         display: inline-block;
+        font-size: 20px;
     }
     input{
         padding: 5px;
         margin: 10px;
+    }
+    a{
+        color: black;
+        text-decoration: underline;
     }
   
 }
@@ -75,4 +78,5 @@ button {
     border: 2px solid $primaryColor;
     border-radius: 5px;
     color: black;
+    font-size: 20px;
 }
