@@ -59,7 +59,7 @@
           <div class="prezzies" *ngFor="let present of presentList | async">
               <div class="presentInfo">
 
-                  <h4>{{present.date.toDate() | date : 'd/M/yy' }}</h4>
+                  <h4>Present recieved : {{present.date.toDate() | date : 'd/M/yy' }}</h4>
                   <p>Name : {{present.theirName}}</p>
                   <p>Relationship: {{present.relationship}}</p>
                   <p>{{present.picture}}</p>    
@@ -67,7 +67,7 @@
                   <p>{{present.rating}} <i ria-hidden="true" class="fas fa-star"></i>'s</p>
 
                   <p><input type="checkbox" (change)="update(present)" [(ngModel)]="present.letterSent"> Letter sent?</p>
-                  <button (click)="delete(present)">X</button>
+                  <a><button (click)="delete(present)">Delete</button></a>
               </div>
             
             </div>
